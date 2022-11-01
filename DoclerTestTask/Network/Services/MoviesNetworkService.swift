@@ -6,7 +6,7 @@ protocol MovieNetworkServiceProtocol {
     /// - Parameters:
     ///   - page: Number of desired page
     ///   - completion: callback
-    func getPopularMovies(page: Int, completion: @escaping (Result<MoviesTopPopularResponse>) -> Void)
+    func getPopularMovies(page: Int, completion: @escaping (Result<MoviesListResponse>) -> Void)
 
     /// Get array of genres with their IDs
     /// - Parameter completion: callback
@@ -20,7 +20,7 @@ protocol MovieNetworkServiceProtocol {
     func searchMovie(
         query: String,
         page: Int,
-        completion: @escaping (Result<MoviesTopPopularResponse>) -> Void
+        completion: @escaping (Result<MoviesListResponse>) -> Void
     )
 
     /// Get cast and crew info
@@ -40,7 +40,7 @@ final class MovieNetworkService: MovieNetworkServiceProtocol {
         self.networkService = NetworkService(provider: provider)
     }
 
-    func getPopularMovies(page: Int, completion: @escaping (Result<MoviesTopPopularResponse>) -> Void) {
+    func getPopularMovies(page: Int, completion: @escaping (Result<MoviesListResponse>) -> Void) {
         networkService.request(.getTopMovies(page: page)) { result in
             completion(result)
         }
@@ -55,7 +55,7 @@ final class MovieNetworkService: MovieNetworkServiceProtocol {
     func searchMovie(
         query: String,
         page: Int,
-        completion: @escaping (Result<MoviesTopPopularResponse>) -> Void
+        completion: @escaping (Result<MoviesListResponse>) -> Void
     ) {
         networkService.request(.searchMovie(query: query, page: page)) { result in
             completion(result)

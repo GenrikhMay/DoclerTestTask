@@ -39,14 +39,14 @@ final class MovieListPresenter: MovieListPresenterProtocol {
     private let loadMoreTreshold: Int = 5
     private let numberOfMoviesPerPage: Int = 20
     private let maxMovies: Int = 100
-    private var genres: [GenreDTO]?
+    private var genres: [Genre]?
     private var searchTimer: Timer?
     private let searchDebounceTime: Double = 0.5
     private var isLoading: Bool = false
     private var searchQuery: String = ""
 
     func setupView() {
-        interactor?.configSetup { [weak self] in
+        interactor?.setupConfig { [weak self] in
             self?.interactor?.fetchGenres { [weak self] genres in
                 self?.genres = genres
                 self?.interactor?.fetchTopMovies(page: 1)

@@ -20,7 +20,7 @@ struct MovieViewModel: Decodable {
 
     init(
         movieDTO: MovieDTO,
-        genres: [GenreDTO],
+        genres: [Genre],
         linkBuilder: ImageLinkBuilder = ImageLinkBuilder()
     ) {
         let previewPosterPathURL: String?

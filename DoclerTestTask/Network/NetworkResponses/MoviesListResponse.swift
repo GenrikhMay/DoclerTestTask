@@ -1,4 +1,4 @@
-struct MoviesTopPopularResponse: Decodable {
+struct MoviesListResponse: Decodable {
     let page: Int
     let results: [MovieDTO]
     let totalResults: Int

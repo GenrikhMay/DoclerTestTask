@@ -3,7 +3,7 @@ import Foundation
 protocol MovieListInteractorProtocol {
     /// Set up config variables
     /// - Parameter completion: callback
-    func configSetup(completion: @escaping() -> Void)
+    func setupConfig(completion: @escaping() -> Void)
 
     /// Get top movies
     /// - Parameter page: results page number
@@ -11,7 +11,7 @@ protocol MovieListInteractorProtocol {
 
     /// Get genres list
     /// - Parameter completion: callback
-    func fetchGenres(completion: @escaping ([GenreDTO]) -> Void)
+    func fetchGenres(completion: @escaping ([Genre]) -> Void)
 
     /// Search movie using API
     /// - Parameters:
@@ -34,7 +34,7 @@ final class MovieListInteractor: MovieListInteractorProtocol {
         self.configNetworkService = configNetworkService
     }
 
-    func configSetup(completion: @escaping () -> Void) {
+    func setupConfig(completion: @escaping () -> Void) {
         configNetworkService.getConfiguration { [weak self] result in
             switch result {
             case .success(let configResponse):
@@ -47,10 +47,12 @@ final class MovieListInteractor: MovieListInteractorProtocol {
     }
 
     private func setupConfig(configResponse: ConfigurationNetworkResponse) {
-        MovieApiConfiguration.shared.addValue(
-            key: .imageBaseURL,
-            value: configResponse.images.secureBaseUrl
-        )
+        if let baseUrl = configResponse.images.secureBaseUrl {
+            MovieApiConfiguration.shared.addValue(
+                key: .imageBaseURL,
+                value: baseUrl
+            )
+        }
         if let previewSize = configResponse.images.posterSizes.first {
             MovieApiConfiguration.shared.addValue(
                 key: .previewPosterSize,
@@ -85,7 +87,7 @@ final class MovieListInteractor: MovieListInteractorProtocol {
         }
     }
 
-    func fetchGenres(completion: @escaping ([GenreDTO]) -> Void) {
+    func fetchGenres(completion: @escaping ([Genre]) -> Void) {
         movieNetworkService.getGenres { result in
             switch result {
             case .success(let response):

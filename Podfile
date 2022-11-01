@@ -9,3 +9,11 @@ target 'DoclerTestTask' do
   pod 'SwiftLint', '~> 0.49.1'
 
 end
+
+target 'DoclerTestTaskTests' do
+  use_frameworks!
+
+  pod 'SDWebImage', '~> 5.11.1'
+  pod 'Moya', '~> 15.0.0'
+  pod 'SwiftLint', '~> 0.49.1'
+end

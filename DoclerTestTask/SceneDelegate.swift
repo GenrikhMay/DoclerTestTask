@@ -14,7 +14,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         let navigationController = UINavigationController()
         window?.rootViewController = navigationController
-        AppStartingCoordinator().start(navigationController: navigationController)
+        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil {
+            AppStartingCoordinator().start(navigationController: navigationController)
+        }
         window?.makeKeyAndVisible()
     }
 }

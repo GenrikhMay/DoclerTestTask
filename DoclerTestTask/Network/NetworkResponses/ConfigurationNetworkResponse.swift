@@ -1,7 +1,7 @@
 struct ConfigurationNetworkResponse: Decodable {
     struct ImagesInfo: Decodable {
         let baseUrl: String
-        let secureBaseUrl: String
+        let secureBaseUrl: String?
         let backdropSizes: [String]
         let logoSizes: [String]
         let posterSizes: [String]
