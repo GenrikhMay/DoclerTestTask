@@ -39,14 +39,14 @@ class MovieListPresenterTests: XCTestCase {
         let expectation = expectation(description: "movieListPresenter exp")
         expectation.expectedFulfillmentCount = 2
         let genres = [
-            Genre(id: 1, name: "name")
+            GenreDTO(id: 1, name: "name")
         ]
         interactor.expectation = expectation
         interactor.fetchGenresStub = genres
         interactor.fetchTopMoviesStub = {}
 
         // act
-        sut.setupView()
+        sut.viewDidLoad()
 
         // assert
         waitForExpectations(timeout: 0.5)
@@ -61,7 +61,7 @@ class MovieListPresenterTests: XCTestCase {
         sut.addToMovieList(movies: loadedMovies)
 
         // act
-        sut.loadMoviesIfNeeded(displayedMovieIndex: 10)
+        sut.willDisplayCell(at index: 10)
 
         // assert
         XCTAssertFalse(interactor.fetchTopMoviesWasCalled)
@@ -73,7 +73,7 @@ class MovieListPresenterTests: XCTestCase {
         sut.addToMovieList(movies: loadedMovies)
 
         // act
-        sut.loadMoviesIfNeeded(displayedMovieIndex: 18)
+        sut.willDisplayCell(at index: 18)
 
         // assert
         XCTAssertTrue(interactor.fetchTopMoviesWasCalled)
@@ -86,7 +86,7 @@ class MovieListPresenterTests: XCTestCase {
         sut.addToMovieList(movies: loadedMovies)
 
         // act
-        sut.loadMoviesIfNeeded(displayedMovieIndex: 10)
+        sut.willDisplayCell(at index: 10)
 
         // assert
         XCTAssertFalse(interactor.fetchTopMoviesWasCalled)
@@ -100,7 +100,7 @@ class MovieListPresenterTests: XCTestCase {
         interactor.searchMovieStub = {}
 
         // act
-        sut.loadMoviesIfNeeded(displayedMovieIndex: 18)
+        sut.willDisplayCell(at index: 18)
 
         // assert
         XCTAssertTrue(interactor.searchMovieWasCalled)
@@ -138,7 +138,7 @@ class MovieListPresenterTests: XCTestCase {
         sut.addToMovieList(movies: Array(repeating: sampleMovie, count: 5))
 
         // act
-        sut.movieWasTapped(index: 2)
+        sut.tableViewCellWasTapped(at index: 2)
 
         // assert
         XCTAssertTrue(router.openMovieDetailsWasCalled)
@@ -149,7 +149,7 @@ class MovieListPresenterTests: XCTestCase {
         sut.addToMovieList(movies: Array(repeating: sampleMovie, count: 5))
 
         // act
-        sut.movieWasTapped(index: 10)
+        sut.tableViewCellWasTapped(at index: 10)
 
         // assert
         XCTAssertFalse(router.openMovieDetailsWasCalled)

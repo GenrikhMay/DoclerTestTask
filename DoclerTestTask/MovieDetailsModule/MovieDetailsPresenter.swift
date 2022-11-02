@@ -1,10 +1,7 @@
 import Foundation
 
-protocol MovieDetailsPresenterProtocol: AnyObject {
+protocol MovieDetailsPresenterProtocol: AnyObject, UIVIewControllerLifeCycleSupportabble {
     var movie: MovieViewModel { get }
-
-    /// Load initial info and set it up
-    func setupView()
 }
 
 final class MovieDetailsPresenter: MovieDetailsPresenterProtocol {
@@ -18,7 +15,7 @@ final class MovieDetailsPresenter: MovieDetailsPresenterProtocol {
         self.movie = movie
     }
 
-    func setupView() {
+    func viewDidLoad() {
         interactor?.getCreditsInfo(movieId: movie.id) { [weak self] cast in
             let castString = cast.map { $0.name }.joined(separator: ", ")
             self?.view?.updateCastInfo(cast: castString)

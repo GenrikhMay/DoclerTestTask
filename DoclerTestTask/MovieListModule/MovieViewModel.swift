@@ -1,26 +1,35 @@
 import Foundation
 
 struct MovieViewModel: Decodable {
-    var previewPosterPath: String?
-    var fullPosterPathURL: String?
+    let id: Int
     let overview: String
     var genres: String
-    let id: Int
     let title: String
     let voteAverage: Double
+    var previewPosterPath: String?
+    var fullPosterPath: String?
 
-    init(posterPath: String? = nil, overview: String, genres: String, id: Int, title: String, voteAverage: Double) {
-        self.previewPosterPath = posterPath
+    init(
+        id: Int,
+        overview: String,
+        genres: String,
+        title: String,
+        voteAverage: Double,
+        previewPosterPath: String? = nil,
+        fullPosterPath: String? = nil
+    ) {
         self.overview = overview
         self.genres = genres
         self.id = id
         self.title = title
         self.voteAverage = voteAverage
+        self.previewPosterPath = previewPosterPath
+        self.fullPosterPath = fullPosterPath
     }
 
     init(
         movieDTO: MovieDTO,
-        genres: [Genre],
+        genres: [GenreViewModel],
         linkBuilder: ImageLinkBuilder = ImageLinkBuilder()
     ) {
         let previewPosterPathURL: String?
@@ -38,7 +47,7 @@ struct MovieViewModel: Decodable {
             }?.name.uppercased()
         }.joined(separator: ", ")
         self.previewPosterPath = previewPosterPathURL
-        self.fullPosterPathURL = fullPosterPathURL
+        self.fullPosterPath = fullPosterPathURL
         self.overview = movieDTO.overview
         self.genres = genresString
         self.id = movieDTO.id

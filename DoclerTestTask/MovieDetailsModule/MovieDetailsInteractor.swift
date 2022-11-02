@@ -9,8 +9,8 @@ protocol MovieDetailsInteractorProtocol {
 }
 
 final class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
-    let movieNetworkService: MovieNetworkServiceProtocol
-    let configNetworkService: ConfigurationNetworkServiceProtocol
+    private let movieNetworkService: MovieNetworkServiceProtocol
+    private let configNetworkService: ConfigurationNetworkServiceProtocol
 
     init(
         movieNetworkService: MovieNetworkServiceProtocol = MovieNetworkService(),

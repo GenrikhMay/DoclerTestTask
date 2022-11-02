@@ -1,3 +1,3 @@
 struct GenresNetworkResponse: Decodable {
-    let genres: [Genre]
+    let genres: [GenreDTO]
 }

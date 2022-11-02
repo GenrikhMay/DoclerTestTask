@@ -1,25 +1,6 @@
 import Foundation
 import UIKit
 
-protocol MovieListPresenterProtocol: AnyObject {
-    var movieList: [MovieViewModel] { get }
-
-    /// Load initial info and set it up
-    func setupView()
-
-    /// Load more movies if end of list movie list was shown
-    /// - Parameter displayedMovieIndex: displayed movie index
-    func loadMoviesIfNeeded(displayedMovieIndex: Int)
-
-    /// Update movie list according to search query
-    /// - Parameter query: search query
-    func searchQueryChanged(query: String)
-
-    /// Process tapping on exact movie
-    /// - Parameter index: chosen movie index
-    func movieWasTapped(index: Int)
-}
-
 protocol MovieListInteractorDelegate: AnyObject {
     /// Add movies to movie list
     /// - Parameter movies: movies to add
@@ -28,6 +9,13 @@ protocol MovieListInteractorDelegate: AnyObject {
     /// Update search results
     /// - Parameter movies: search result array
     func updateSearchResults(movies: [MovieDTO])
+}
+
+protocol MovieListPresenterProtocol: AnyObject,
+                                     UISearchBarSupportabble,
+                                     UITableViewSupportabble,
+                                     UIVIewControllerLifeCycleSupportabble {
+    var movieList: [MovieViewModel] { get }
 }
 
 final class MovieListPresenter: MovieListPresenterProtocol {
@@ -39,32 +27,32 @@ final class MovieListPresenter: MovieListPresenterProtocol {
     private let loadMoreTreshold: Int = 5
     private let numberOfMoviesPerPage: Int = 20
     private let maxMovies: Int = 100
-    private var genres: [Genre]?
+    private var genres: [GenreViewModel]?
     private var searchTimer: Timer?
     private let searchDebounceTime: Double = 0.5
     private var isLoading: Bool = false
     private var searchQuery: String = ""
 
-    func setupView() {
+    func viewDidLoad() {
         interactor?.setupConfig { [weak self] in
             self?.interactor?.fetchGenres { [weak self] genres in
-                self?.genres = genres
+                self?.genres = genres.map { GenreViewModel(id: $0.id, name: $0.name) }
                 self?.interactor?.fetchTopMovies(page: 1)
             }
         }
         isLoading = true
     }
 
-    func loadMoviesIfNeeded(displayedMovieIndex: Int) {
+    func willDisplayCell(at index: Int) {
         guard !isLoading else { return }
         if searchQuery.isEmpty {
             guard movieList.count < maxMovies else { return }
-            if displayedMovieIndex >= (movieList.count - loadMoreTreshold) {
+            if index >= (movieList.count - loadMoreTreshold) {
                 isLoading = true
                 interactor?.fetchTopMovies(page: (movieList.count / numberOfMoviesPerPage + 1))
             }
         } else {
-            if displayedMovieIndex >= (movieList.count - loadMoreTreshold) {
+            if index >= (movieList.count - loadMoreTreshold) {
                 isLoading = true
                 interactor?.searchMovie(
                     query: searchQuery,
@@ -95,7 +83,7 @@ final class MovieListPresenter: MovieListPresenterProtocol {
         )
     }
 
-    func movieWasTapped(index: Int) {
+    func tableViewCellWasTapped(at index: Int) {
         guard movieList.indices.contains(index) else {
             return
         }

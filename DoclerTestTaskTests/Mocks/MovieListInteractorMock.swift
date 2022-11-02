@@ -12,7 +12,7 @@ final class MovieListInteractorMock: MovieListInteractorProtocol {
     var fetchTopMoviesStub: (() -> Void)!
     var searchMovieStub: (() -> Void)!
 
-    var fetchGenresStub: [Genre]!
+    var fetchGenresStub: [GenreDTO]!
 
     func setupConfig(completion: @escaping () -> Void) {
         setupConfigWasCalled = true
@@ -24,7 +24,7 @@ final class MovieListInteractorMock: MovieListInteractorProtocol {
         fetchTopMoviesWasCalled = true
     }
 
-    func fetchGenres(completion: @escaping ([Genre]) -> Void) {
+    func fetchGenres(completion: @escaping ([GenreDTO]) -> Void) {
         fetchGenresWasCalled = true
         completion(fetchGenresStub)
         expectation?.fulfill()

@@ -12,10 +12,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let navigationController = UINavigationController()
-        window?.rootViewController = navigationController
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil {
-            AppStartingCoordinator().start(navigationController: navigationController)
+            let startingController = AppStartingCoordinator().start()
+            window?.rootViewController = startingController
         }
         window?.makeKeyAndVisible()
     }

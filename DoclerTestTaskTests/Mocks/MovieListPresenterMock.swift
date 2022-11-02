@@ -12,11 +12,11 @@ final class MovieListPresenterMock: MovieListPresenterProtocol, MovieListInterac
     var addToMovieListWasCalled = false
     var updateSearchResultsWasCalled = false
 
-    func setupView() {
+    func viewDidLoad() {
         setupViewWasCalled = true
     }
 
-    func loadMoviesIfNeeded(displayedMovieIndex: Int) {
+    func willDisplayCell(at index: Int) {
         loadMoviesIfNeededWasCalled = true
         expectation?.fulfill()
     }
@@ -26,7 +26,7 @@ final class MovieListPresenterMock: MovieListPresenterProtocol, MovieListInterac
         expectation?.fulfill()
     }
 
-    func movieWasTapped(index: Int) {
+    func tableViewCellWasTapped(at index: Int) {
         movieWasTappedWasCalled = true
         expectation?.fulfill()
     }

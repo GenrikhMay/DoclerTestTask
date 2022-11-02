@@ -9,7 +9,7 @@ protocol MovieDetailsModuleBuilderProtocol {
     func build(
         movieInfo: MovieViewModel,
         using navigationController: UINavigationController
-    ) -> MovieDetailsViewController
+    ) -> UIViewController
 }
 
 struct MovieDetailsModuleBuilder: MovieDetailsModuleBuilderProtocol {
@@ -17,7 +17,7 @@ struct MovieDetailsModuleBuilder: MovieDetailsModuleBuilderProtocol {
     func build(
         movieInfo: MovieViewModel,
         using navigationController: UINavigationController
-    ) -> MovieDetailsViewController {
+    ) -> UIViewController {
         let router = MovieDetailsRouter(navigationController: navigationController)
         let presenter = MovieDetailsPresenter(movie: movieInfo)
         let interactor = MovieDetailsInteractor()

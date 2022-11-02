@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		37FE1CDC9C0DA2A88F06DDFB /* Pods_DoclerTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FF58B4DEF5ED1CD6A12A5D /* Pods_DoclerTestTask.framework */; };
+		76B6386A2912911D00A23A05 /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B638692912911D00A23A05 /* UITableViewCell+ReuseIdentifier.swift */; };
+		76B638742912982F00A23A05 /* UIVIewControllerLifeCycleSupportabble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B638732912982F00A23A05 /* UIVIewControllerLifeCycleSupportabble.swift */; };
+		76B638762912984000A23A05 /* UITableViewSupportabble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B638752912984000A23A05 /* UITableViewSupportabble.swift */; };
+		76B638782912985600A23A05 /* UISearchBarSupportabble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B638772912985600A23A05 /* UISearchBarSupportabble.swift */; };
 		76F79E1D291102CD001B4C57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79E1C291102CD001B4C57 /* AppDelegate.swift */; };
 		76F79E1F291102CD001B4C57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79E1E291102CD001B4C57 /* SceneDelegate.swift */; };
 		76F79E26291102CF001B4C57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76F79E25291102CF001B4C57 /* Assets.xcassets */; };
@@ -40,7 +44,7 @@
 		76F79E7629110D88001B4C57 /* MovieDetailsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79E7529110D88001B4C57 /* MovieDetailsModuleBuilder.swift */; };
 		76F79E7829110F26001B4C57 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79E7729110F26001B4C57 /* RootCoordinator.swift */; };
 		76F79E7B2911100F001B4C57 /* MovieDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79E7A2911100E001B4C57 /* MovieDTO.swift */; };
-		76F79E7D29111027001B4C57 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79E7C29111027001B4C57 /* Genre.swift */; };
+		76F79E7D29111027001B4C57 /* GenreDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79E7C29111027001B4C57 /* GenreDTO.swift */; };
 		76F79E7F29111038001B4C57 /* CastDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79E7E29111038001B4C57 /* CastDTO.swift */; };
 		76F79E8229111094001B4C57 /* MoviesListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79E8129111094001B4C57 /* MoviesListResponse.swift */; };
 		76F79E84291110AB001B4C57 /* GenresNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79E83291110AB001B4C57 /* GenresNetworkResponse.swift */; };
@@ -54,6 +58,7 @@
 		76F79EAD29117A1D001B4C57 /* MovieListInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79EAC29117A1D001B4C57 /* MovieListInteractorMock.swift */; };
 		76F79EAF29117BE7001B4C57 /* MovieListRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79EAE29117BE7001B4C57 /* MovieListRouterMock.swift */; };
 		76F79EB129117CB0001B4C57 /* MovieListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F79EB029117CB0001B4C57 /* MovieListViewMock.swift */; };
+		76FBC54129128B1C00782579 /* GenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FBC54029128B1C00782579 /* GenreViewModel.swift */; };
 		7BAC3858E08B58EB484D10FA /* Pods_DoclerTestTaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE40B767D822881908BE995 /* Pods_DoclerTestTaskTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +74,10 @@
 
 /* Begin PBXFileReference section */
 		26774CAFD632CEB889155237 /* Pods-DoclerTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoclerTestTask.release.xcconfig"; path = "Target Support Files/Pods-DoclerTestTask/Pods-DoclerTestTask.release.xcconfig"; sourceTree = "<group>"; };
+		76B638692912911D00A23A05 /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		76B638732912982F00A23A05 /* UIVIewControllerLifeCycleSupportabble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewControllerLifeCycleSupportabble.swift; sourceTree = "<group>"; };
+		76B638752912984000A23A05 /* UITableViewSupportabble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewSupportabble.swift; sourceTree = "<group>"; };
+		76B638772912985600A23A05 /* UISearchBarSupportabble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBarSupportabble.swift; sourceTree = "<group>"; };
 		76F79E19291102CD001B4C57 /* DoclerTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoclerTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76F79E1C291102CD001B4C57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76F79E1E291102CD001B4C57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +112,7 @@
 		76F79E7529110D88001B4C57 /* MovieDetailsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsModuleBuilder.swift; sourceTree = "<group>"; };
 		76F79E7729110F26001B4C57 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		76F79E7A2911100E001B4C57 /* MovieDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDTO.swift; sourceTree = "<group>"; };
-		76F79E7C29111027001B4C57 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		76F79E7C29111027001B4C57 /* GenreDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreDTO.swift; sourceTree = "<group>"; };
 		76F79E7E29111038001B4C57 /* CastDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastDTO.swift; sourceTree = "<group>"; };
 		76F79E8129111094001B4C57 /* MoviesListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListResponse.swift; sourceTree = "<group>"; };
 		76F79E83291110AB001B4C57 /* GenresNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresNetworkResponse.swift; sourceTree = "<group>"; };
@@ -118,6 +127,7 @@
 		76F79EAC29117A1D001B4C57 /* MovieListInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListInteractorMock.swift; sourceTree = "<group>"; };
 		76F79EAE29117BE7001B4C57 /* MovieListRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRouterMock.swift; sourceTree = "<group>"; };
 		76F79EB029117CB0001B4C57 /* MovieListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewMock.swift; sourceTree = "<group>"; };
+		76FBC54029128B1C00782579 /* GenreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModel.swift; sourceTree = "<group>"; };
 		97F27DC6F59B435C1C30A7AA /* Pods-DoclerTestTaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoclerTestTaskTests.debug.xcconfig"; path = "Target Support Files/Pods-DoclerTestTaskTests/Pods-DoclerTestTaskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9EE94F45551EAB357245138F /* Pods-DoclerTestTaskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoclerTestTaskTests.release.xcconfig"; path = "Target Support Files/Pods-DoclerTestTaskTests/Pods-DoclerTestTaskTests.release.xcconfig"; sourceTree = "<group>"; };
 		9FE40B767D822881908BE995 /* Pods_DoclerTestTaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoclerTestTaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +164,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		76B638682912910700A23A05 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				76F79E71291108E2001B4C57 /* UIColor+Init.swift */,
+				76B638692912911D00A23A05 /* UITableViewCell+ReuseIdentifier.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		76B638722912980C00A23A05 /* Architecture */ = {
+			isa = PBXGroup;
+			children = (
+				76B638732912982F00A23A05 /* UIVIewControllerLifeCycleSupportabble.swift */,
+				76B638752912984000A23A05 /* UITableViewSupportabble.swift */,
+				76B638772912985600A23A05 /* UISearchBarSupportabble.swift */,
+			);
+			path = Architecture;
+			sourceTree = "<group>";
+		};
 		76F79E10291102CD001B4C57 = {
 			isa = PBXGroup;
 			children = (
@@ -177,17 +206,14 @@
 		76F79E1B291102CD001B4C57 /* DoclerTestTask */ = {
 			isa = PBXGroup;
 			children = (
-				76F79E1C291102CD001B4C57 /* AppDelegate.swift */,
-				76F79E1E291102CD001B4C57 /* SceneDelegate.swift */,
-				76F79E7729110F26001B4C57 /* RootCoordinator.swift */,
+				76F79EB22912850F001B4C57 /* Application */,
+				76B638722912980C00A23A05 /* Architecture */,
 				76F79E5A291104BD001B4C57 /* Network */,
 				76F79E492911049C001B4C57 /* MovieListModule */,
 				76F79E3E29110458001B4C57 /* MovieDetailsModule */,
-				76F79E71291108E2001B4C57 /* UIColor+Init.swift */,
-				76F79E3C29110431001B4C57 /* AppColors.swift */,
-				76F79E25291102CF001B4C57 /* Assets.xcassets */,
-				76F79E27291102CF001B4C57 /* LaunchScreen.storyboard */,
-				76F79E2A291102CF001B4C57 /* Info.plist */,
+				76F79EB32912852C001B4C57 /* UI */,
+				76B638682912910700A23A05 /* Extensions */,
+				76F79EB429128578001B4C57 /* Supporting */,
 			);
 			path = DoclerTestTask;
 			sourceTree = "<group>";
@@ -216,6 +242,7 @@
 				76F79E4B291104A9001B4C57 /* MovieTableViewCell.swift */,
 				76F79E4D291104A9001B4C57 /* MovieTableViewCell.xib */,
 				76F79E4F291104A9001B4C57 /* MovieViewModel.swift */,
+				76FBC54029128B1C00782579 /* GenreViewModel.swift */,
 				76F79E7329110D34001B4C57 /* MovieListModuleBuilder.swift */,
 			);
 			path = MovieListModule;
@@ -267,7 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				76F79E7A2911100E001B4C57 /* MovieDTO.swift */,
-				76F79E7C29111027001B4C57 /* Genre.swift */,
+				76F79E7C29111027001B4C57 /* GenreDTO.swift */,
 				76F79E7E29111038001B4C57 /* CastDTO.swift */,
 				76F79E6429110507001B4C57 /* CrewDTO.swift */,
 			);
@@ -305,6 +332,34 @@
 				76F79EB029117CB0001B4C57 /* MovieListViewMock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		76F79EB22912850F001B4C57 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				76F79E1C291102CD001B4C57 /* AppDelegate.swift */,
+				76F79E1E291102CD001B4C57 /* SceneDelegate.swift */,
+				76F79E7729110F26001B4C57 /* RootCoordinator.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		76F79EB32912852C001B4C57 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				76F79E27291102CF001B4C57 /* LaunchScreen.storyboard */,
+				76F79E3C29110431001B4C57 /* AppColors.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		76F79EB429128578001B4C57 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				76F79E25291102CF001B4C57 /* Assets.xcassets */,
+				76F79E2A291102CF001B4C57 /* Info.plist */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 		B6681D2773169EB525EF0817 /* Pods */ = {
@@ -525,7 +580,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76F79E6729110507001B4C57 /* NetworkConstants.swift in Sources */,
-				76F79E7D29111027001B4C57 /* Genre.swift in Sources */,
+				76F79E7D29111027001B4C57 /* GenreDTO.swift in Sources */,
 				76F79E4729110478001B4C57 /* MovieDetailsViewController.swift in Sources */,
 				76F79E4829110478001B4C57 /* MovieDetailsRouter.swift in Sources */,
 				76F79E402911046C001B4C57 /* MovieDetailsInteractor.swift in Sources */,
@@ -542,14 +597,18 @@
 				76F79E5F291104F6001B4C57 /* MovieAPIEndpoints.swift in Sources */,
 				76F79E6929110507001B4C57 /* NetworkService.swift in Sources */,
 				76F79E58291104AA001B4C57 /* MovieListInteractor.swift in Sources */,
+				76B638762912984000A23A05 /* UITableViewSupportabble.swift in Sources */,
 				76F79E7F29111038001B4C57 /* CastDTO.swift in Sources */,
+				76B638742912982F00A23A05 /* UIVIewControllerLifeCycleSupportabble.swift in Sources */,
 				76F79E6D29110507001B4C57 /* ResponseDecoder.swift in Sources */,
 				76F79E88291111B2001B4C57 /* MovieApiConfiguration.swift in Sources */,
 				76F79E8A29111B50001B4C57 /* ImageLinkBuilder.swift in Sources */,
 				76F79E7B2911100F001B4C57 /* MovieDTO.swift in Sources */,
+				76B6386A2912911D00A23A05 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				76F79E3D29110432001B4C57 /* AppColors.swift in Sources */,
 				76F79E6829110507001B4C57 /* MoviesNetworkService.swift in Sources */,
 				76F79E8229111094001B4C57 /* MoviesListResponse.swift in Sources */,
+				76B638782912985600A23A05 /* UISearchBarSupportabble.swift in Sources */,
 				76F79E7429110D34001B4C57 /* MovieListModuleBuilder.swift in Sources */,
 				76F79E1D291102CD001B4C57 /* AppDelegate.swift in Sources */,
 				76F79E6B29110507001B4C57 /* CrewDTO.swift in Sources */,
@@ -558,6 +617,7 @@
 				76F79E1F291102CD001B4C57 /* SceneDelegate.swift in Sources */,
 				76F79E6A29110507001B4C57 /* ConfigurationNetworkService.swift in Sources */,
 				76F79E53291104AA001B4C57 /* MovieTableViewCell.swift in Sources */,
+				76FBC54129128B1C00782579 /* GenreViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,7 +781,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5HP42QRAHQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DoclerTestTask/Info.plist;
+				INFOPLIST_FILE = DoclerTestTask/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -749,7 +809,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5HP42QRAHQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DoclerTestTask/Info.plist;
+				INFOPLIST_FILE = DoclerTestTask/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

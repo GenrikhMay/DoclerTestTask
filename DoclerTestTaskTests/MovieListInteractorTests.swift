@@ -155,11 +155,11 @@ class MovieListInteractorTests: XCTestCase {
     func testFetchGenresSucceeded() {
         // arrange
         let expectation = self.expectation(description: "fetch genres exp")
-        var fetchedGenres: [Genre] = []
+        var fetchedGenres: [GenreDTO] = []
 
         let predefinedGenres = [
-            Genre(id: 1, name: "genre1"),
-            Genre(id: 2, name: "genre2")
+            GenreDTO(id: 1, name: "genre1"),
+            GenreDTO(id: 2, name: "genre2")
         ]
         let mockResponse = GenresNetworkResponse(genres: predefinedGenres)
         mockMovieService.getGenresStub = .success(mockResponse)
@@ -181,7 +181,7 @@ class MovieListInteractorTests: XCTestCase {
     func testFetchGenresFailed() {
         // arrange
         let expectation = self.expectation(description: "fetch genres exp")
-        var fetchedGenres: [Genre]!
+        var fetchedGenres: [GenreDTO]!
 
         mockMovieService.getGenresStub = .error(.requestMapping("test error"))
         let presenterMock = MovieListPresenterMock()

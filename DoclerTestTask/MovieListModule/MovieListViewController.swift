@@ -24,11 +24,13 @@ final class MovieListViewController: UIViewController {
     private func setupUI() {
         overrideUserInterfaceStyle = .dark
 
-        safeAreaBackground.backgroundColor = UIColor.navigationBackground
+        safeAreaBackground.backgroundColor = AppColors.navigationBackground
 
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor.navigationBackground
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textPrimary]
+        appearance.backgroundColor = AppColors.navigationBackground
+        appearance.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: AppColors.Text.primary
+        ]
 
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.standardAppearance = appearance
@@ -60,7 +62,7 @@ final class MovieListViewController: UIViewController {
         tableView.delegate = self
         tableView.layer.cornerRadius = cornerRadius
 
-        presenter?.setupView()
+        presenter?.viewDidLoad()
     }
 }
 
@@ -86,11 +88,11 @@ extension MovieListViewController: UITableViewDataSource, UITableViewDelegate {
         willDisplay cell: UITableViewCell,
         forRowAt indexPath: IndexPath
     ) {
-        presenter?.loadMoviesIfNeeded(displayedMovieIndex: indexPath.row)
+        presenter?.willDisplayCell(at: indexPath.row)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.movieWasTapped(index: indexPath.row)
+        presenter?.tableViewCellWasTapped(at: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 

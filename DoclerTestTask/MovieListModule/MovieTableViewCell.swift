@@ -9,7 +9,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet private var ratingProgress: UIProgressView!
     @IBOutlet private var ratingLabel: UILabel!
 
-    static let reuseIdentifier: String = "MovieTableViewCell"
+    private var placeholderImage = UIImage(systemName: "camera.metering.matrix")
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,9 +17,10 @@ class MovieTableViewCell: UITableViewCell {
             ofSize: UIFont.labelFontSize,
             weight: .bold
         )
-        genresLabel.textColor = UIColor.textTetriary
-        ratingLabel.textColor = UIColor.textTetriary
-        ratingProgress.tintColor = UIColor.accentColor
+        genresLabel.textColor = AppColors.Text.tetriary
+        ratingLabel.textColor = AppColors.Text.tetriary
+        ratingProgress.tintColor = AppColors.accentColor
+        posterImage.tintColor = AppColors.accentColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,13 +34,18 @@ class MovieTableViewCell: UITableViewCell {
 
     func configure(movie: MovieViewModel) {
         self.accessoryType = .disclosureIndicator
-        self.backgroundColor = UIColor.backgroundSecondary
+        self.backgroundColor = AppColors.backgroundSecondary
         titleLabel.text = movie.title
         genresLabel.text = movie.genres
         ratingLabel.text = "\(movie.voteAverage)"
         ratingProgress.progress = Float(movie.voteAverage) / 10.0
         if let urlString = movie.previewPosterPath {
-            posterImage.sd_setImage(with: URL(string: urlString))
+            posterImage.sd_setImage(
+                with: URL(string: urlString),
+                placeholderImage: placeholderImage
+            )
+        } else {
+            posterImage.image = placeholderImage
         }
     }
 }

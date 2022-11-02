@@ -11,7 +11,7 @@ protocol MovieListInteractorProtocol {
 
     /// Get genres list
     /// - Parameter completion: callback
-    func fetchGenres(completion: @escaping ([Genre]) -> Void)
+    func fetchGenres(completion: @escaping ([GenreDTO]) -> Void)
 
     /// Search movie using API
     /// - Parameters:
@@ -21,8 +21,8 @@ protocol MovieListInteractorProtocol {
 }
 
 final class MovieListInteractor: MovieListInteractorProtocol {
-    let movieNetworkService: MovieNetworkServiceProtocol
-    let configNetworkService: ConfigurationNetworkServiceProtocol
+    private let movieNetworkService: MovieNetworkServiceProtocol
+    private let configNetworkService: ConfigurationNetworkServiceProtocol
 
     weak var delegate: MovieListInteractorDelegate?
 
@@ -87,7 +87,7 @@ final class MovieListInteractor: MovieListInteractorProtocol {
         }
     }
 
-    func fetchGenres(completion: @escaping ([Genre]) -> Void) {
+    func fetchGenres(completion: @escaping ([GenreDTO]) -> Void) {
         movieNetworkService.getGenres { result in
             switch result {
             case .success(let response):

@@ -9,7 +9,7 @@ protocol MovieDetailsViewProtocol: AnyObject {
 
 class MovieDetailsViewController: UIViewController {
     @IBOutlet private var posterImage: UIImageView!
-    @IBOutlet private var overviewTtileLabel: UILabel!
+    @IBOutlet private var overviewTitleLabel: UILabel!
     @IBOutlet private var overviewContentLabel: UILabel!
     @IBOutlet private var castTitleLabel: UILabel!
     @IBOutlet private var castContentLabel: UILabel!
@@ -29,15 +29,17 @@ class MovieDetailsViewController: UIViewController {
         overrideUserInterfaceStyle = .dark
 
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor.navigationBackground
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textPrimary]
+        appearance.backgroundColor = AppColors.navigationBackground
+        appearance.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: AppColors.Text.primary
+        ]
 
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         self.title = presenter?.movie.title
 
-        self.navigationController?.navigationBar.tintColor = UIColor.accentColor
+        self.navigationController?.navigationBar.tintColor = AppColors.accentColor
 
         let voteAverageLabel = UILabel()
         if let voteAvg = presenter?.movie.voteAverage {
@@ -46,22 +48,22 @@ class MovieDetailsViewController: UIViewController {
                 ofSize: UIFont.labelFontSize,
                 weight: .regular
             )
-            voteAverageLabel.textColor = UIColor.textSecondary
+            voteAverageLabel.textColor = AppColors.Text.secondary
             let voteAverageBarItem = UIBarButtonItem(customView: voteAverageLabel)
             navigationItem.rightBarButtonItem = voteAverageBarItem
         }
 
-        if let urlString = presenter?.movie.fullPosterPathURL {
+        if let urlString = presenter?.movie.fullPosterPath {
             posterImage.sd_setImage(with: URL(string: urlString))
         }
 
-        overviewTtileLabel.font = UIFont.systemFont(
+        overviewTitleLabel.font = UIFont.systemFont(
             ofSize: UIFont.preferredFont(forTextStyle: .title2).pointSize,
             weight: .bold
         )
-        overviewTtileLabel.text = overviewTitle
+        overviewTitleLabel.text = overviewTitle
 
-        overviewContentLabel.textColor = UIColor.textSecondary
+        overviewContentLabel.textColor = AppColors.Text.secondary
         overviewContentLabel.text = presenter?.movie.overview
 
         castTitleLabel.font = UIFont.systemFont(
@@ -70,10 +72,10 @@ class MovieDetailsViewController: UIViewController {
         )
         castTitleLabel.text = castTitle
 
-        castContentLabel.textColor = UIColor.textSecondary
+        castContentLabel.textColor = AppColors.Text.secondary
         castContentLabel.text = ""
 
-        presenter?.setupView()
+        presenter?.viewDidLoad()
     }
 }
 
